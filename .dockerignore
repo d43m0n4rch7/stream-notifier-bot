@@ -1,0 +1,29 @@
+# Python byte-compiled/optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local virtual environments
+.venv/
+venv/
+env/
+
+# IDE and linter metadata/caches
+.idea/
+.vscode/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets and local environment configurations
+.env
+.env.*
+!.env.example
+
+# System files and logs
+*.log
+.DS_Store
+
+# Version control and orchestration artifacts
+.git/
+.gitignore
+docker-compose*.yml
