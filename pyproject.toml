@@ -3,5 +3,89 @@ name = "stream-notifier-bot"
 version = "0.1.0"
 description = "Live Twitch stream notifier and Telegram channel auto-commenter bot"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.12"
-dependencies = []
+authors = [{ name = "D43m0n4RcH7", email = "d43m0n4rch7@gmail.com" }]
+keywords = ["twitch", "bot", "aiogram", "asyncio", "notifier"]
+urls.Homepage = "https://github.com/d43m0n4rch7/stream-notifier-bot"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Chat",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "aiogram>=3.28.2",
+    "aiohttp>=3.13.5",
+    "colorlog>=6.10.1",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.14.1",
+    "python-i18n[yaml]>=0.3.9",
+]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.409",
+    "ruff>=0.15.15",
+]
+
+[tool.pyright]
+include = ["src"]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+deprecateTypingAliases = true
+exclude = [".venv", "**/__pycache__", "**/.*"]
+
+reportCallInDefaultInitializer = "warning"
+reportImplicitOverride = "warning"
+reportImplicitStringConcatenation = "none"
+reportImportCycles = "none"
+reportMissingSuperCall = "none"
+reportPropertyTypeMismatch = "warning"
+reportUninitializedInstanceVariable = "warning"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUnreachable = "warning"
+reportUnusedCallResult = "none"
+reportDuplicateImport = "none"
+reportMissingTypeStubs = "none"
+
+[tool.ruff]
+src = ["src"]
+preview = false
+line-length = 125
+target-version = "py312"
+exclude = [".venv", "**/__pycache__"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN401",  # Allow Any type annotations for specific flexible interfaces (e.g., kwargs)
+    "COM812",  # Conflict with ruff format (trailing comma missing)
+    "ISC001",  # Conflict with ruff format (implicit string concatenation)
+    "RUF001",  # Allow cyrillic characters in localization context
+    "TRY003",  # Allow descriptive strings in generic exceptions
+    "D104"  # Ignore missing docstrings in public packages/modules
+]
+unfixable = [
+    "E501",  # Lines that exceed the line-length limit
+    "ERA",  # Commented-out code (avoid accidental removal of logic)
+    "RUF100"  # Unused noqa directives (keep manual control over lint overrides)
+]
+flake8-quotes.inline-quotes = "double"
+flake8-annotations.allow-star-arg-any = true
+
+[tool.ruff.format]
+line-ending = "lf"
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+split-on-trailing-comma = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
