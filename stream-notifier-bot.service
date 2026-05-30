@@ -1,0 +1,22 @@
+# sudo nano /etc/systemd/system/stream-notifier-bot.service
+# sudo systemctl daemon-reload
+# sudo systemctl enable stream-notifier-bot --now
+# sudo journalctl -u stream-notifier-bot -f
+
+[Unit]
+Description=Telegram & Twitch Stream Notifier Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/stream-notifier-bot
+ExecStart=/home/ubuntu/stream-notifier-bot/.venv/bin/python -m src.main
+User=ubuntu
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/home/ubuntu/stream-notifier-bot
+
+[Install]
+WantedBy=multi-user.target
