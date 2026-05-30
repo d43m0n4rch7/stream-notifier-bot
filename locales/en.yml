@@ -1,0 +1,10 @@
+notifications:
+  buttons:
+    link: "Go to Chat"
+    watch_vod: "Watch VOD"
+  auto_comment:
+    text: "👋 Hi! Thanks for the forward. Join our main chat to chat!"
+  online:
+    caption: "🔴 <b>%{stream_title}</b>\n\n🎮 Game: %{game_name}\n\nJoin the stream!"
+  offline:
+    caption: "💤 Stream has ended. See you next time! The broadcast recording is available below."
