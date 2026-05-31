@@ -1,10 +1,20 @@
 notifications:
-  buttons:
-    link: "Перейти в чат"
-    watch_vod: "Смотреть запись"
-  auto_comment:
-    text: "👋 Привет! Спасибо за репост. Заходи в наш основной чат для общения!"
   online:
-    caption: "🔴 <b>%{stream_title}</b>\n\n🎮 Игра: %{game_name}\n\nПрисоединяйся к трансляции!"
+    caption: >
+      🔴 ШУВУХА UwU В ЭФИРЕ!!!!
+      ————————————————————————
+      <blockquote>💬 <b>%{stream_title}</b></blockquote>
+      Категория: <code>%{game_name}</code> 🌸
+
+      *(трансляция ещё идет, заходи, я ждууу~!)*
   offline:
-    caption: "💤 Стрим окончен. Увидимся в следующий раз! Запись трансляции доступна ниже."
+    caption: >
+      🏁 ТРАНСЛЯЦИЯ ЗАВЕРШЕНА
+      ————————————————————————
+      <blockquote>Спасибо всем что пришли!!! 🩵🩵🩵</blockquote>
+      Запись уже доступна по кнопке ниже👇
+  auto_comment:
+    text: >
+      Вступай в чат синей кошки <tg-emoji emoji-id="5244912803726248923">😆</tg-emoji> 
+      <tg-emoji emoji-id="5244912803726248923">😆</tg-emoji> 
+      <tg-emoji emoji-id="5244912803726248923">😆</tg-emoji>
