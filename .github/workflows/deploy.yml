@@ -1,0 +1,25 @@
+name: Deploy and Restart
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Deploy and restart via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ./stream-notifier-bot
+            git pull
+            ~/.local/bin/uv sync --frozen --no-dev
+            sudo systemctl restart stream-notifier-bot.service
