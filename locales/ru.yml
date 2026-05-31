@@ -1,4 +1,7 @@
 notifications:
+  buttons:
+    link: "Тык"
+    watch_vod: "Смотреть запись"
   online:
     caption: >
       🔴 ШУВУХА UwU В ЭФИРЕ!!!!
