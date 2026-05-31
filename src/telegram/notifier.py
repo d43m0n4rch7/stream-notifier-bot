@@ -35,7 +35,7 @@ class TelegramTwitchNotifier:
     """Core tracking service managing notification intervals and automated group comment logic."""
 
     OFFLINE_GRACE_PERIOD: Final[int] = 300
-    DELETE_AFTER_OFFLINE: Final[int] = 86400
+    DELETE_AFTER_OFFLINE: Final[int] = 28800
 
     def __init__(self, bot: Bot, twitch_api: TwitchAPI, chat_id: int, streamer_name: str) -> None:
         """
