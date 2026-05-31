@@ -24,7 +24,7 @@ def get_auto_comment_keyboard(chat_link: str, i18n: LocalizationManager) -> Inli
         The compiled inline user interface control element.
     """
     return InlineKeyboardMarkup(
-        inline_keyboard=[[InlineKeyboardButton(text=i18n.t("notifications.buttons.link"), url=chat_link)]]
+        inline_keyboard=[[InlineKeyboardButton(text=i18n.t("notifications.buttons.link"), url=chat_link, style="primary")]]
     )
 
 
@@ -45,8 +45,8 @@ def get_online_keyboard(streamer_name: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="Twitch", url=f"https://twitch.tv/{streamer_name}"),
-                InlineKeyboardButton(text="VK Live", url=f"https://live.vkvideo.ru/{streamer_name}"),
+                InlineKeyboardButton(text="Twitch", url=f"https://twitch.tv/{streamer_name}", style="primary"),
+                InlineKeyboardButton(text="VK Live", url=f"https://live.vkvideo.ru/{streamer_name}", style="primary"),
             ]
         ]
     )
@@ -71,5 +71,5 @@ def get_offline_keyboard(vod_url: str, i18n: LocalizationManager) -> InlineKeybo
     if not vod_url:
         return None
     return InlineKeyboardMarkup(
-        inline_keyboard=[[InlineKeyboardButton(text=i18n.t("notifications.buttons.watch_vod"), url=vod_url)]]
+        inline_keyboard=[[InlineKeyboardButton(text=i18n.t("notifications.buttons.watch_vod"), url=vod_url, style="primary")]]
     )
