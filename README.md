@@ -123,6 +123,38 @@ notifications:
 
 ## 🚀 Deployment Blueprints
 
+### 📌 Step 1: Server Preparation (General Setup)
+
+Before launching the bot, you need to clone the repository, install the `uv` package manager, and configure the environment.
+
+1. **Cloning the Repository:**
+   Connect to your server via SSH, navigate to your home directory, and clone the project:
+   ```bash
+   cd ~
+   git clone https://github.com/d43m0n4rch7/stream-notifier-bot.git
+   cd stream-notifier-bot
+   ```
+
+2. **Installing `uv` on the Server:**
+   `uv` is a modern, ultra-fast Python package manager that automatically manages virtual environments. Install it using the official script:
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+   After the installation is complete, apply the new environment path variables (or simply restart your SSH session):
+   ```bash
+   source $HOME/.local/bin/env
+   ```
+
+3. **Environment Configuration:**
+   Create a `.env` configuration file based on the template and populate it with your tokens:
+   ```bash
+   cp .env.example .env
+   nano .env
+   ```
+   *(To save changes in the nano editor, press `Ctrl + O`, then `Enter`. To exit, press `Ctrl + X`)*
+
+---
+
 ### 📦 Option A: Containerized Runtime via Docker Compose (Recommended)
 Utilizes a lean, multi-stage `Dockerfile` architecture engineered with `uv` to maintain a minimal production footprint.
 
@@ -155,6 +187,7 @@ sudo nano /etc/systemd/system/stream-notifier-bot.service
 ```
 
 3. Populate the service layout file precisely:
+   *(Replace `ubuntu` in the `WorkingDirectory`, `ExecStart`, and `Environment` paths if your server username is different)*
 ```ini
 [Unit]
 Description=Telegram & Twitch Stream Notifier Bot
@@ -181,7 +214,12 @@ sudo systemctl daemon-reload
 sudo systemctl enable stream-notifier-bot --now
 ```
 
-5. Intercept active execution logging pipelines:
+5. Verify service initialization status:
+```bash
+sudo systemctl status stream-notifier-bot
+```
+
+6. Intercept active execution logging pipelines:
 ```bash
 sudo journalctl -u stream-notifier-bot -f
 ```
